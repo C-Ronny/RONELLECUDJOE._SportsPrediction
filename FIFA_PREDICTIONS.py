@@ -2,6 +2,12 @@ import streamlit as st
 import joblib
 import pandas as pd
 
+try:
+    import joblib
+except ImportError:
+    st.error("Joblib module is not installed. Please install it using `pip install joblib`.")
+    st.stop()
+
 # Load the model and fitted scaler
 try:
     model = joblib.load('best_enemble_model.pkl')
